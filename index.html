@@ -4,324 +4,839 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Priyanshu Oli - Web Developer & Tech Enthusiast. Passionate about building websites and learning new technologies.">
-    <meta name="keywords" content="web developer, frontend developer, HTML, CSS, JavaScript, React, portfolio">
     <meta name="author" content="Priyanshu Oli">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Priyanshu Oli - Portfolio">
-    <meta property="og:description" content="Web Developer & Tech Enthusiast from Uttarakhand, India">
-    <meta property="og:type" content="website">
-    
     <title>Priyanshu Oli - Portfolio</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <!-- Lottie Animation -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="cursor-trail"></div>
+
+    <!-- Noise + Grain Overlay -->
+    <div class="noise-overlay"></div>
+    <div class="grain-overlay"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-cube">
+                <div class="cube-face cube-front">P</div>
+                <div class="cube-face cube-back">O</div>
+                <div class="cube-face cube-right">R</div>
+                <div class="cube-face cube-left">T</div>
+                <div class="cube-face cube-top">F</div>
+                <div class="cube-face cube-bottom">O</div>
+            </div>
+            <div class="preloader-bar">
+                <div class="preloader-fill"></div>
+            </div>
+            <div class="preloader-counter">0%</div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">Devil's <span>House</span></a>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#journey">My Journey</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-3d">
+                    <span class="logo-bracket">&lt;</span>PO<span class="logo-bracket">/&gt;</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#hero" class="nav-item" data-index="01">
+                    <span class="nav-text">Home</span>
+                    <span class="nav-hover-text">Home</span>
+                </a>
+                <a href="#about" class="nav-item" data-index="02">
+                    <span class="nav-text">About</span>
+                    <span class="nav-hover-text">About</span>
+                </a>
+                <a href="#skills" class="nav-item" data-index="03">
+                    <span class="nav-text">Skills</span>
+                    <span class="nav-hover-text">Skills</span>
+                </a>
+                <a href="#projects" class="nav-item" data-index="04">
+                    <span class="nav-text">Work</span>
+                    <span class="nav-hover-text">Work</span>
+                </a>
+                <a href="#journey" class="nav-item" data-index="05">
+                    <span class="nav-text">Journey</span>
+                    <span class="nav-hover-text">Journey</span>
+                </a>
+                <a href="#contact" class="nav-item" data-index="06">
+                    <span class="nav-text">Contact</span>
+                    <span class="nav-hover-text">Contact</span>
+                </a>
+            </nav>
+            <div class="header-right">
+                <a href="https://docs.google.com/document/d/1FO3A5DAXTDzXNMhA8Q4gfFrJFuE6ZQiQ/export?format=pdf" class="resume-btn" download="Priyanshu_Oli_Resume.pdf">
+                    <span class="resume-text">Resume</span>
+                    <div class="resume-icon-wrap">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm <span>Priyanshu Oli</span><br> Web Developer & Learner</h1>
-                <p>I'm passionate about building websites and learning new technologies. Currently exploring the exciting world of web development!</p>
-                <a href="#projects" class="btn">View My Work</a>
-                <div class="social-icons">
-                    <a href="https://github.com/priyansh1224" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/priyanshu-oli-13a913290" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://twitter.com/priyansh1224" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/priyansh1224" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-bg"></div>
+        <div class="mobile-menu-content">
+            <a href="#hero" class="mobile-nav-item" data-index="01">Home</a>
+            <a href="#about" class="mobile-nav-item" data-index="02">About</a>
+            <a href="#skills" class="mobile-nav-item" data-index="03">Skills</a>
+            <a href="#projects" class="mobile-nav-item" data-index="04">Work</a>
+            <a href="#journey" class="mobile-nav-item" data-index="05">Journey</a>
+            <a href="#contact" class="mobile-nav-item" data-index="06">Contact</a>
+            <div class="mobile-menu-footer">
+                <div class="mobile-social-links">
+                    <a href="https://github.com/priyansh1224" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/priyanshu-oli-13a913290" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/priyansh1224" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/priyansh1224" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
-            </div>
-            <div class="hero-animation">
-                <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_iv4dsx3q.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>
-            </div>
-        </div>
-    </section>
-      <!-- CV Download Section -->
-<section id="cv-download">
-    <div class="container">
-        <div class="cv-container" data-aos="fade-up">
-            <h2 class="section-title">Download My <span>Resume</span></h2>
-            <p>Get a detailed overview of my skills, experience, and projects by downloading my resume.</p>
-            <a href="https://docs.google.com/document/d/1FO3A5DAXTDzXNMhA8Q4gfFrJFuE6ZQiQ/export?format=pdf" 
-               class="download-btn" 
-               download="Priyanshu_Oli_Resume.pdf">
-                <i class="fas fa-download"></i> Download Resume
-            </a>
-            <div class="download-hint">
-                <i class="fas fa-arrow-down"></i>
-                <span>Click to download</span>
             </div>
         </div>
     </div>
-</section>
-    <!-- About Section with Personal Photo -->
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-gradient-orb hero-orb-1"></div>
+        <div class="hero-gradient-orb hero-orb-2"></div>
+        <div class="hero-gradient-orb hero-orb-3"></div>
+        <div class="hero-aurora"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">Available for opportunities</span>
+            </div>
+            <h1 class="hero-title">
+                <div class="title-line">
+                    <span class="title-word" data-text="Creative">Creative</span>
+                </div>
+                <div class="title-line">
+                    <span class="title-word" data-text="Developer">Developer</span>
+                    <span class="title-ampersand">&</span>
+                </div>
+                <div class="title-line">
+                    <span class="title-word title-outline" data-text="Problem">Problem</span>
+                    <span class="title-word" data-text="Solver">Solver</span>
+                </div>
+            </h1>
+            <div class="hero-bottom">
+                <div class="hero-description">
+                    <div class="desc-line"></div>
+                    <p>I'm <strong>Priyanshu Oli</strong>, a passionate web developer from Uttarakhand, India. Building digital experiences with clean code and creative thinking.</p>
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-primary">
+                        <span class="cta-bg"></span>
+                        <span class="cta-text">Explore Work</span>
+                        <div class="cta-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="#contact" class="cta-secondary">
+                        <span>Let's Talk</span>
+                        <div class="cta-underline"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll Down</span>
+            </div>
+        </div>
+
+        <div class="hero-floating-elements">
+            <div class="floating-tag tag-1"><i class="fab fa-html5" style="color:#E44D26"></i> HTML5</div>
+            <div class="floating-tag tag-2"><i class="fab fa-react" style="color:#61DAFB"></i> React</div>
+            <div class="floating-tag tag-3"><i class="fab fa-js-square" style="color:#F7DF1E"></i> JS</div>
+            <div class="floating-tag tag-4"><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS3</div>
+            <div class="floating-tag tag-5"><i class="fab fa-node-js" style="color:#68A063"></i> Node</div>
+        </div>
+
+        <div class="hero-social-sidebar">
+            <a href="https://github.com/priyansh1224" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/priyanshu-oli-13a913290" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/priyansh1224" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/priyansh1224" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="social-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee Strip -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span><i class="fab fa-html5" style="color:#E44D26"></i> HTML5</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-react" style="color:#61DAFB"></i> REACT</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-js-square" style="color:#F7DF1E"></i> JAVASCRIPT</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-node-js" style="color:#68A063"></i> NODE.JS</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS3</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-python" style="color:#FFD43B"></i> PYTHON</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fab fa-git-alt" style="color:#F05032"></i> GIT</span>
+                <span class="marquee-dot">◆</span>
+                <span><i class="fas fa-database" style="color:#4DB33D"></i> MONGODB</span>
+                <span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About <span>Me</span></h2>
-            <div class="about-container">
-                <div class="about-img">
-                    <!-- Replace with your actual photo -->
-                    <img src="img/me.png" alt="Priyanshu Oli" class="personal-photo">
-                    <div class="photo-frame"></div>
-                </div>
-                <div class="about-text">
-                    <h2>Web Developer & <span>Tech Enthusiast</span></h2>
-                    <h3>Building my skills one project at a time</h3>
-                    <p>Hello! I'm Priyanshu, a self-taught web developer from Uttarakhand , India. I'm currently on an exciting journey to master web development and build meaningful projects.</p>
-                    <p>While I'm still in the learning phase, I've already completed several projects that showcase my growing skills in HTML, CSS, JavaScript, and React. I'm passionate about creating clean, functional websites and constantly expanding my knowledge.</p>
-                    <div class="personal-info">
-                        <div class="info-item">
-                            <span class="info-label">From:</span>
-                            <span class="info-value">Uttarakhand,India</span>
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">About Me</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-col">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-frame">
+                            <img src="img/me.png" alt="Priyanshu Oli" class="about-photo">
+                            <div class="image-overlay"></div>
+                            <div class="image-glitch-overlay"></div>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Education:</span>
-                            <span class="info-value">Computer Science Student</span>
+                        <div class="about-image-decoration">
+                            <div class="deco-corner deco-tl"></div>
+                            <div class="deco-corner deco-br"></div>
+                            <div class="deco-circle"></div>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">priyanshuoli30@gmail.com</span>
+                        <div class="about-experience-badge">
+                            <div class="exp-ring">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" class="exp-ring-bg"/>
+                                    <circle cx="50" cy="50" r="45" class="exp-ring-fill"/>
+                                </svg>
+                            </div>
+                            <span class="exp-number">2+</span>
+                            <span class="exp-text">Years<br>Learning</span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">Hobbies:</span>
-                            <span class="info-value">Coding, Photography, Gaming</span>
+                        <div class="about-code-badge">
+                            <span class="code-line">&lt;developer /&gt;</span>
                         </div>
                     </div>
-                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                </div>
+                <div class="about-text-col">
+                    <div class="about-intro">
+                        <h3>Web Developer & <span class="text-gradient">Tech Enthusiast</span></h3>
+                        <p class="about-tagline">Building my skills one project at a time</p>
+                    </div>
+                    <div class="about-description">
+                        <p>Hello! I'm Priyanshu, a self-taught web developer from Uttarakhand, India. I'm on an exciting journey to master web development and build meaningful projects that make a difference.</p>
+                        <p>While I'm still in the learning phase, I've already completed several projects that showcase my growing skills in HTML, CSS, JavaScript, and React. I'm passionate about creating clean, functional websites.</p>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-card">
+                            <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="detail-content">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Uttarakhand, India</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="detail-content">
+                                <span class="detail-label">Education</span>
+                                <span class="detail-value">CS Student</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="detail-content">
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">priyanshuoli30@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-icon"><i class="fas fa-gamepad"></i></div>
+                            <div class="detail-content">
+                                <span class="detail-label">Interests</span>
+                                <span class="detail-value">Code, Photo, Gaming</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="about-cta magnetic-btn">
+                        <span>Get in Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="bg-light">
+    <!-- Skills Section with 3D Globe -->
+    <section id="skills">
         <div class="container">
-            <h2 class="section-title">My <span>Skills</span></h2>
-            <p class="section-subtitle">Here are the technologies I've been learning and working with</p>
-            
-            <div class="skills-container">
-                <div class="skills-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h3>Backend & Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Express</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h3>Tools & Others</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">DSA</span>
-                        <span class="skill-tag">Prompt engineering </span>
-                    </div>
-                </div>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Tech Stack</span>
+                </h2>
+                <div class="section-line"></div>
             </div>
-            
-            <div class="learning-section">
-                <h3>Currently Learning</h3>
-                <div class="learning-items">
-                    <div class="learning-item">
-                        <i class="fas fa-book"></i>
-                        <span>Advanced React</span>
-                    </div>
-                    <div class="learning-item">
-                        <i class="fas fa-book"></i>
-                        <span>Next.js</span>
-                    </div>
-                    <div class="learning-item">
-                        <i class="fas fa-book"></i>
-                        <span>API Development</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- My Journey Section -->
-    <section id="journey">
-        <div class="container">
-            <h2 class="section-title">My <span>Journey</span></h2>
-            <p class="section-subtitle">How I got started with programming and what I've accomplished so far</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2023</div>
-                    <div class="timeline-content">
-                        <h3>Started Learning Programming</h3>
-                        <p>Began with basic C++ and Python, learning fundamental programming concepts and problem-solving skills.</p>
+            <div class="skills-layout">
+                <!-- 3D Globe -->
+                <div class="skills-globe-wrapper">
+                    <div class="globe-container" id="globeContainer"></div>
+                    <div class="globe-label">
+                        <span class="globe-label-text">Interactive Skills Globe</span>
+                        <span class="globe-hint">Drag to rotate</span>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date"> Early 2024</div>
-                    <div class="timeline-content">
-                        <h3>Discovered Web Development</h3>
-                        <p>Started learning HTML, CSS, and JavaScript. Built my first simple websites and fell in love with creating for the web.</p>
+
+                <!-- Skills Cards Grid -->
+                <div class="skills-cards-section">
+                    <div class="skills-category-tabs">
+                        <button class="tab-btn active" data-category="all">All</button>
+                        <button class="tab-btn" data-category="frontend">Frontend</button>
+                        <button class="tab-btn" data-category="backend">Backend</button>
+                        <button class="tab-btn" data-category="tools">Tools</button>
+                    </div>
+
+                    <div class="skills-grid">
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #E44D26; --icon-glow: rgba(228,77,38,0.4)">
+                                        <i class="fab fa-html5"></i>
+                                    </div>
+                                    <h4>HTML5</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="90" style="--meter-color: #E44D26"></div>
+                                    </div>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #264de4; --icon-glow: rgba(38,77,228,0.4)">
+                                        <i class="fab fa-css3-alt"></i>
+                                    </div>
+                                    <h4>CSS3</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="85" style="--meter-color: #264de4"></div>
+                                    </div>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #F7DF1E; --icon-glow: rgba(247,223,30,0.4)">
+                                        <i class="fab fa-js-square"></i>
+                                    </div>
+                                    <h4>JavaScript</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="80" style="--meter-color: #F7DF1E"></div>
+                                    </div>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #61DAFB; --icon-glow: rgba(97,218,251,0.4)">
+                                        <i class="fab fa-react"></i>
+                                    </div>
+                                    <h4>React</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="75" style="--meter-color: #61DAFB"></div>
+                                    </div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #38BDF8; --icon-glow: rgba(56,189,248,0.4)">
+                                        <i class="fas fa-wind"></i>
+                                    </div>
+                                    <h4>Tailwind</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="80" style="--meter-color: #38BDF8"></div>
+                                    </div>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="frontend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #7952B3; --icon-glow: rgba(121,82,179,0.4)">
+                                        <i class="fab fa-bootstrap"></i>
+                                    </div>
+                                    <h4>Bootstrap</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="78" style="--meter-color: #7952B3"></div>
+                                    </div>
+                                    <span class="skill-percent">78%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="backend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #68A063; --icon-glow: rgba(104,160,99,0.4)">
+                                        <i class="fab fa-node-js"></i>
+                                    </div>
+                                    <h4>Node.js</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="65" style="--meter-color: #68A063"></div>
+                                    </div>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="backend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #ffffff; --icon-glow: rgba(255,255,255,0.3)">
+                                        <i class="fas fa-server"></i>
+                                    </div>
+                                    <h4>Express</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="60" style="--meter-color: #888"></div>
+                                    </div>
+                                    <span class="skill-percent">60%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="backend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #4DB33D; --icon-glow: rgba(77,179,61,0.4)">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <h4>MongoDB</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="60" style="--meter-color: #4DB33D"></div>
+                                    </div>
+                                    <span class="skill-percent">60%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="backend">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #336791; --icon-glow: rgba(51,103,145,0.4)">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <h4>SQL</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="55" style="--meter-color: #336791"></div>
+                                    </div>
+                                    <span class="skill-percent">55%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #F05032; --icon-glow: rgba(240,80,50,0.4)">
+                                        <i class="fab fa-git-alt"></i>
+                                    </div>
+                                    <h4>Git</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="75" style="--meter-color: #F05032"></div>
+                                    </div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #FFD43B; --icon-glow: rgba(255,212,59,0.4)">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <h4>Python</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="70" style="--meter-color: #FFD43B"></div>
+                                    </div>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #3178C6; --icon-glow: rgba(49,120,198,0.4)">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <h4>TypeScript</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="55" style="--meter-color: #3178C6"></div>
+                                    </div>
+                                    <span class="skill-percent">55%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #00599C; --icon-glow: rgba(0,89,156,0.4)">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <h4>C++</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="65" style="--meter-color: #00599C"></div>
+                                    </div>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #e040fb; --icon-glow: rgba(224,64,251,0.4)">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <h4>DSA</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="65" style="--meter-color: #e040fb"></div>
+                                    </div>
+                                    <span class="skill-percent">65%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card-3d" data-category="tools">
+                            <div class="skill-card-inner">
+                                <div class="skill-card-front">
+                                    <div class="skill-icon-3d" style="--icon-color: #00BFA5; --icon-glow: rgba(0,191,165,0.4)">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <h4>Prompt Eng</h4>
+                                    <div class="skill-meter">
+                                        <div class="meter-fill" data-width="70" style="--meter-color: #00BFA5"></div>
+                                    </div>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Mid 2024</div>
-                    <div class="timeline-content">
-                        <h3>Dived Into Frontend</h3>
-                        <p>Learned responsive design, CSS frameworks, and began working with React. Completed several small projects.</p>
-                    </div>
+            </div>
+
+            <div class="currently-learning">
+                <div class="learning-header">
+                    <span class="pulse-dot"></span>
+                    <h3>Currently Learning</h3>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date"> Early 2025</div>
-                    <div class="timeline-content">
-                        <h3>Backend Exploration</h3>
-                        <p>Started learning Node.js, Express, and databases to understand full-stack development.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Now</div>
-                    <div class="timeline-content">
-                        <h3>Building & Improving</h3>
-                        <p>Creating more complex projects, learning TypeScript, and refining my skills every day.</p>
-                    </div>
+                <div class="learning-tags">
+                    <span class="learning-tag">
+                        <i class="fab fa-react" style="color:#61DAFB"></i>
+                        <span style="color: #ffffff;">Advanced React</span>
+                    </span>
+                    <span class="learning-tag">
+                        <i class="fas fa-bolt" style="color:#fff"></i>
+                        <span style="color: #ffffff;">Next.js</span>
+                    </span>
+                    <span class="learning-tag">
+                        <i class="fas fa-plug" style="color:#00cec9"></i>
+                        <span style="color: #ffffff;">API Development</span>
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="bg-light">
+    <section id="projects">
         <div class="container">
-            <h2 class="section-title">My <span>Projects</span></h2>
-            <p class="section-subtitle">Here are some of the projects I've built while learning</p>
-            
-            <div class="projects-container">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="./img/project1.png" alt="Personal Portfolio">
-                        <div class="project-links">
-                            <a href="www.linkedin.com/in/priyanshu-oli-13a913290" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" title="View Code"><i class="fab fa-github"></i></a>
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Selected Work</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-showcase">
+                <div class="project-item">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-3d-hover">
+                            <img src="./img/project1.png" alt="Personal Portfolio">
+                            <div class="project-reflection"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <a href="#" class="project-link-btn magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/priyansh1224" class="project-link-btn magnetic-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
+                        <div class="project-number">01</div>
                     </div>
-                    <div class="project-info">
-                        <h3>Personal Portfolio Website</h3>
-                        <p>A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-category">Web Development</span>
+                            <span class="project-year">2024</span>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="./img/project2.png" alt="event organizer">
-                        <div class="project-links">
-                            <a href="www.linkedin.com/in/priyanshu-oli-13a913290" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" title="View Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Event organizer website</h3>
-                        <p>"Effortlessly plan, manage, and promote your events all in one place"</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Html</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">Local Storage</span>
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <p class="project-desc">A responsive portfolio website built with modern web technologies featuring smooth animations and 3D effects.</p>
+                        <div class="project-tech">
+                            <span><i class="fab fa-html5" style="color:#E44D26"></i> HTML</span>
+                            <span><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS</span>
+                            <span><i class="fab fa-js-square" style="color:#F7DF1E"></i> JavaScript</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="./img/project3.png" alt="Swiggy">
-                        <div class="project-links">
-                            <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" title="View Code"><i class="fab fa-github"></i></a>
+
+                <div class="project-item project-reverse">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-3d-hover">
+                            <img src="./img/project2.png" alt="Event Organizer">
+                            <div class="project-reflection"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <a href="#" class="project-link-btn magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/priyansh1224" class="project-link-btn magnetic-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
+                        <div class="project-number">02</div>
                     </div>
-                    <div class="project-info">
-                        <h3>Swiggy clone </h3>
-                        <p> "One app for all your hunger needs--order, track, and enjoy hassle-free!"</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">API</span>
-                            <span class="project-tag">Responsive</span>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-category">Full Stack</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Event Organizer Platform</h3>
+                        <p class="project-desc">Effortlessly plan, manage, and promote events with intuitive UI and persistent local storage integration.</p>
+                        <div class="project-tech">
+                            <span><i class="fab fa-html5" style="color:#E44D26"></i> HTML</span>
+                            <span><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS</span>
+                            <span><i class="fas fa-hdd" style="color:#00cec9"></i> Storage</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="./img/project4.png" alt="animal planet">
-                        <div class="project-links">
-                            <a href="#" class="project-link" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="project-link" title="View Code"><i class="fab fa-github"></i></a>
+
+                <div class="project-item">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-3d-hover">
+                            <img src="./img/project3.png" alt="Swiggy Clone">
+                            <div class="project-reflection"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <a href="#" class="project-link-btn magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/priyansh1224" class="project-link-btn magnetic-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-number">03</div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-category">React App</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Swiggy Clone</h3>
+                        <p class="project-desc">A food delivery app clone with React featuring real API integration, responsive design, and smooth UX.</p>
+                        <div class="project-tech">
+                            <span><i class="fab fa-react" style="color:#61DAFB"></i> React</span>
+                            <span><i class="fas fa-plug" style="color:#00cec9"></i> API</span>
+                            <span><i class="fas fa-mobile-alt" style="color:#a29bfe"></i> Responsive</span>
                         </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Animal planet website</h3>
-                        <p>"Explore the wild like never before -- discover amazing animals, facts, habitats."</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Htm</span>
-                            <span class="project-tag">css</span>
-                            <span class="project-tag">JavaScript</span>
+                </div>
+
+                <div class="project-item project-reverse">
+                    <div class="project-image-wrapper">
+                        <div class="project-image project-3d-hover">
+                            <img src="./img/project4.png" alt="Animal Planet">
+                            <div class="project-reflection"></div>
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <a href="#" class="project-link-btn magnetic-btn"><i class="fas fa-external-link-alt"></i></a>
+                                    <a href="https://github.com/priyansh1224" class="project-link-btn magnetic-btn" target="_blank"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-number">04</div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-meta">
+                            <span class="project-category">Interactive Site</span>
+                            <span class="project-year">2024</span>
+                        </div>
+                        <h3 class="project-title">Animal Planet Website</h3>
+                        <p class="project-desc">Explore the wild — discover amazing animals, facts, and habitats through an immersive web experience.</p>
+                        <div class="project-tech">
+                            <span><i class="fab fa-html5" style="color:#E44D26"></i> HTML</span>
+                            <span><i class="fab fa-css3-alt" style="color:#264de4"></i> CSS</span>
+                            <span><i class="fab fa-js-square" style="color:#F7DF1E"></i> JavaScript</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="more-projects">
-                <p>I've built many more small projects while learning. Check out my GitHub to see them all!</p>
-                <a href="#" class="btn btn-outline">View All Projects on GitHub</a>
+
+            <div class="projects-footer">
+                <p>More projects available on GitHub</p>
+                <a href="https://github.com/priyansh1224" target="_blank" class="github-link magnetic-btn">
+                    <span>View All Projects</span>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">My Journey</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="journey-timeline">
+                <div class="timeline-track">
+                    <div class="timeline-progress"></div>
+                </div>
+
+                <div class="journey-item" data-year="2023">
+                    <div class="journey-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="journey-card glass-card">
+                        <div class="journey-year-badge"></div>
+                        <div class="journey-card-inner">
+                            <div class="journey-icon" style="--j-color: #e040fb">
+                                <i class="fas fa-terminal"></i>
+                            </div>
+                            <div class="journey-text">
+                                <h3>Started Learning Programming</h3>
+                                <p>Began with C++ and Python, mastering fundamentals and problem-solving.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-item" data-year="Early 2024">
+                    <div class="journey-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="journey-card glass-card">
+                        <div class="journey-year-badge" ></div>
+                        <div class="journey-card-inner">
+                            <div class="journey-icon" style="--j-color: #E44D26">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="journey-text">
+                                <h3>Discovered Web Development</h3>
+                                <p>Fell in love with HTML, CSS, JavaScript and building for the web.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-item" data-year="Mid 2024">
+                    <div class="journey-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="journey-card glass-card">
+                        <div class="journey-year-badge"></div>
+                        <div class="journey-card-inner">
+                            <div class="journey-icon" style="--j-color: #61DAFB">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="journey-text">
+                                <h3>Dived Into Frontend</h3>
+                                <p>Mastered responsive design, CSS frameworks, and started building with React.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-item" data-year="Early 2025">
+                    <div class="journey-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    <div class="journey-card glass-card">
+                        <div class="journey-year-badge"></div>
+                        <div class="journey-card-inner">
+                            <div class="journey-icon" style="--j-color: #68A063">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="journey-text">
+                                <h3>Backend Exploration</h3>
+                                <p>Explored Node.js, Express, and databases for full-stack capabilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-item" data-year="Now">
+                    <div class="journey-marker">
+                        <div class="marker-dot marker-active"></div>
+                    </div>
+                    <div class="journey-card glass-card">
+                        <div class="journey-year-badge journey-now"></div>
+                        <div class="journey-card-inner">
+                            <div class="journey-icon" style="--j-color: #00cec9">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="journey-text">
+                                <h3>Building & Improving</h3>
+                                <p>Creating complex projects, learning More Advance in the Devleopment, refining skills daily.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -329,71 +844,90 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In <span>Touch</span></h2>
-            <p class="section-subtitle">I'm open to collaborations, learning opportunities, or just a friendly chat!</p>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>Whether you have a project idea, want to collaborate, or just want to say hi, I'd love to hear from you!</p>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>priyanshuoli30@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>+91 9927035628</p>
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">
+                    <span class="title-reveal">Let's Connect</span>
+                </h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-layout">
+                <div class="contact-left">
+                    <h3 class="contact-heading">
+                        Have a project?<br>
+                        <span class="text-gradient">Let's make it happen.</span>
+                    </h3>
+                    <p class="contact-subtext">I'm open to collaborations, learning opportunities, or just a friendly chat!</p>
+
+                    <div class="contact-info-list">
+                        <div class="contact-info-item glass-card">
+                            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-info-text">
+                                <span class="info-label">Email</span>
+                                <a href="mailto:priyanshuoli30@gmail.com">priyanshuoli30@gmail.com</a>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-info-item glass-card">
+                            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-info-text">
+                                <span class="info-label">Phone</span>
+                                <a href="tel:+919927035628">+91 9068381864</a>
                             </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Haldwani Uttarakhand, India</p>
+                        </div>
+                        <div class="contact-info-item glass-card">
+                            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-info-text">
+                                <span class="info-label">Location</span>
+                                <span>Haldwani, Uttarakhand, India</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="contact-social">
-                        <h4>Follow Me</h4>
-                        <div class="social-icons">
-                            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        </div>
+
+                    <div class="contact-socials">
+                        <a href="https://github.com/priyansh1224" target="_blank" class="contact-social-link magnetic-btn">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/priyanshu-oli-13a913290" target="_blank" class="contact-social-link magnetic-btn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com/priyansh1224" target="_blank" class="contact-social-link magnetic-btn">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/priyansh1224" target="_blank" class="contact-social-link magnetic-btn">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+
+                <div class="contact-right">
+                    <form class="contact-form glass-card" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                                <div class="input-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                                <div class="input-line"></div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?">
+                            <div class="input-line"></div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            <div class="input-line"></div>
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="submit-button magnetic-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -401,56 +935,51 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-about">
-                <a href="#" class="footer-logo">Priyanshu<span>Oli</span></a>
-                <p>A passionate beginner web developer building skills through projects and continuous learning.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li><i class="fas fa-envelope"></i> priyanshuoli30@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> +91 9927035628</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Haldwani Uttarakhand, India</li>
-                </ul>
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-cta">
+                    <h2>Ready to bring your<br><span class="text-gradient">ideas to life?</span></h2>
+                    <a href="mailto:priyanshuoli30@gmail.com" class="footer-email-link magnetic-btn">
+                        priyanshuoli30@gmail.com
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <div class="container">
-                <p class="copyright">© <span id="year"></span> Priyanshu Oli. All Rights Reserved</p>
-                <div class="footer-social">
-                    <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="container footer-bottom-content">
+                <div class="footer-left">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-bracket">&lt;</span>PO<span class="logo-bracket">/&gt;</span>
+                    </a>
+                    <p>© <span id="year"></span> Priyanshu Oli. Crafted with passion.</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social-links">
+                    <a href="https://github.com/priyansh1224" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/priyanshu-oli-13a913290" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/priyansh1224" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/priyansh1224" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#hero" class="back-to-top" title="Go to top">
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" title="Back to top">
         <i class="fas fa-arrow-up"></i>
-    </a>
+        <svg class="progress-ring" width="54" height="54">
+            <circle class="progress-ring-circle" cx="27" cy="27" r="24" stroke-width="2" fill="none"/>
+        </svg>
+    </button>
 
     <script src="app.js"></script>
-    <script>
-        // Update copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
